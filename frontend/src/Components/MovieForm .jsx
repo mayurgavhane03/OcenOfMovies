@@ -110,9 +110,19 @@ const MovieForm = () => {
     setIsLoading(true);
 
     try {
+      // Set imdbRating to '-' if it is an empty string
+      const dataToSend = {
+        ...formData,
+        imdbRating: formData.imdbRating === '' ? '-' : formData.imdbRating
+      };
+
       // Send data to backend API
-      const response = await axios.post('http://localhost:5000/api/movies', formData);
+      const response = await axios.post('http://localhost:5000/api/movies', dataToSend);
       console.log('Movie created:', response.data);
+
+      // Show success alert
+      alert('Movie created successfully!');
+
       // Reset form data
       setFormData({
         title: '',
@@ -175,7 +185,7 @@ const MovieForm = () => {
                 onClick={() => setFormData({ ...formData, imageUrl: '' })}
                 className="absolute top-2 right-2 text-white focus:outline-none"
               >
-                 ❌
+                ❌
               </button>
             </div>
           )}
@@ -201,14 +211,11 @@ const MovieForm = () => {
                     alt={`Screenshot ${index + 1}`}
                     className="w-24 h-auto"
                   />
-                  {/* <span className="absolute top-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded">
-                    Screenshot {index + 1}
-                  </span> */}
                   <button
                     onClick={() => setFormData({ ...formData, screenshots: formData.screenshots.filter((_, i) => i !== index) })}
                     className="absolute top-2 right-2 text-white focus:outline-none"
                   >
-                   ❌
+                    ❌
                   </button>
                 </div>
               ))}

@@ -23,8 +23,8 @@ router.get('/title/:title', getMoviesByTitle);
 router.get('/language/:language', getMoviesByLanguage);
 router.get('/quality/:quality', getMoviesByQuality);
 router.get('/genre/:genre', getMoviesByGenre);
-router.get('/:id', getMovieById);
-router.put('/:id', updateMovie);
-router.delete('/:id', deleteMovie);
+router.get('/movies/:id', getMovieById); // Corrected route
+router.put('/movies/:id', updateMovie);
+router.delete('/movie/:id', deleteMovie);
 
 module.exports = router;

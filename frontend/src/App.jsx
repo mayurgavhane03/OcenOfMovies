@@ -1,17 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import MovieForm from "./Components/MovieForm ";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import MainPage from './Components/MainPage';
+import MovieForm from './Components/MovieForm ';
+import MovieDetail from './Components/MovieDetail';
 
-function App() {
-  const [count, setCount] = useState(0);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+   
+  },
+  {
+    path: 'Admin',
+    element: <MovieForm />,
+  },
+  {
+    path: '/movie/:id',
+    element :  <MovieDetail />
+  }
+]);
 
+const App = () => {
   return (
-    <>
-      <MovieForm />
-    </>
+    <RouterProvider router={router} />
   );
-}
+};
 
 export default App;
