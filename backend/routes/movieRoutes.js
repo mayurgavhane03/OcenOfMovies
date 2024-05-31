@@ -15,6 +15,9 @@ const {
 
 const router = express.Router();
 
+// 
+
+
 router.post('/', createMovie);
 router.get('/', getAllMovies); // General route
 router.get('/type/:type', getMoviesByType);

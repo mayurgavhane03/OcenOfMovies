@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './Components/MainPage';
-import MovieForm from './Components/MovieForm ';
 import MovieDetail from './Components/MovieDetail';
+import MovieForm from './Components/MovieForm';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
+    <div  className='h-full bg-gray-900'>
     <RouterProvider router={router} />
+    </div>
   );
 };
 
