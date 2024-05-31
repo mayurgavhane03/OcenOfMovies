@@ -64,7 +64,7 @@ const getMoviesByLanguage = async (req, res) => {
 // Get movies by quality
 const getMoviesByQuality = async (req, res) => {
   try {
-    const qualityField = `quality.${req.params.quality}`;
+    const qualityField = `allInOne.${req.params.quality}`;
     const movies = await Movie.find({ [qualityField]: { $exists: true } });
     res.json(movies);
   } catch (error) {
